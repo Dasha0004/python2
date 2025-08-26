@@ -1,0 +1,69 @@
+[project]
+name = "init"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Your Name",email = "you@example.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+black = "^25.1.0"
+isort = "^6.0.1"
+flake8 = "^7.3.0"
+mypy = "^1.17.1"
+
+
+[tool.poetry.group.lint.dependencies]
+flake8 = "^7.3.0"
+black = "^25.1.0"
+isort = "^6.0.1"
+
+
+[tool.black]
+line-length = 119
+target-version = ['py38']
+exclude = '''
+/(
+\.git
+| \.venv
+| build
+| dist
+)/
+'''
+
+
+[tool.isort]
+profile = "black"
+line_length = 119
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+combine_as_imports = true
+skip = ["venv", ".git", "build", "dist"]
+known_first_party = ["pythonProject2"]
+
+
+[tool.mypy]
+python_version = "3.10"
+check_untyped_defs = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
+strict_optional = true
+warn_unused_ignores = true
+warn_return_any = true
+show_error_codes = true
+files = ["src", "tests"]
+
+
+[tool.flake8]
+extend-select = ["D"]
+max-line-length = 119
