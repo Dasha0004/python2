@@ -1,5 +1,4 @@
-import pytest
-from masks import get_mask_card_number
+from src.masks import get_mask_card_number
 
 def test_mask_correct_card_number():
     card = "1234567890123456"
@@ -32,8 +31,8 @@ def test_mask_more_than_16_digits():
     expected = "1234 56** **** 7890"
     assert get_mask_card_number(card) == expected
 
-import pytest
-from masks import get_mask_account
+
+from src.masks import get_mask_account
 
 def test_mask_account_normal():
     # Проверяем корректную маску для стандартного номера счета
