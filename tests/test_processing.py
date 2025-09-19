@@ -1,9 +1,11 @@
 import sys
+from typing import Any, Dict, List
 
-sys.path.append(r"/Пользователи/admin/PyCharmProject/pythonProject2/src")
 import pytest
 
 from src.processing import filter_by_state
+
+sys.path.append(r"/Пользователи/admin/PyCharmProject/pythonProject2/src")
 
 
 @pytest.mark.parametrize(
@@ -27,10 +29,6 @@ def test_filter_by_state(state, expected_ids):
     assert all(item["state"] == state for item in filtered)
     # Проверяем корректность выборки по id
     assert filtered_ids == expected_ids
-
-    from typing import Any, Dict, List
-
-    import pytest
 
     # Исходная функция
     def sort_by_date(items: List[Dict[str, Any]], descending: bool = True) -> List[Dict[str, Any]]:
@@ -91,11 +89,6 @@ def test_filter_by_state(state, expected_ids):
 
     def test_sort_with_empty_list():
         assert sort_by_date([]) == []
-
-
-from typing import Any, Dict, List
-
-import pytest
 
 
 def sort_by_date(items: List[Dict[str, Any]], descending: bool = True) -> List[Dict[str, Any]]:

@@ -1,7 +1,8 @@
 import sys
 
+from src.masks import get_mask_account, get_mask_card_number
+
 sys.path.append(r"/Пользователи/admin/PyCharmProject/pythonProject2/src")
-from src.masks import get_mask_card_number
 
 
 def test_mask_correct_card_number():
@@ -40,9 +41,6 @@ def test_mask_more_than_16_digits():
     card = "12345678901234567890"
     expected = "1234 56** **** 7890"
     assert get_mask_card_number(card) == expected
-
-
-from src.masks import get_mask_account
 
 
 def test_mask_account_normal():

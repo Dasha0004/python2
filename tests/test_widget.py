@@ -1,9 +1,10 @@
 import sys
 
-sys.path.append(r"/Пользователи/admin/PyCharmProject/pythonProject2/src")
 import pytest
 
 from src.widget import mask_account_card
+
+sys.path.append(r"/Пользователи/admin/PyCharmProject/pythonProject2/src")
 
 
 @pytest.mark.parametrize(
@@ -35,9 +36,6 @@ def test_mask_account_card_non_digit_number():
         assert True
     else:
         assert "**5678" in result
-
-
-import pytest
 
 
 @pytest.fixture(
