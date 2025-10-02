@@ -3,6 +3,8 @@ import logging
 
 
 def log(filename=None):
+    """Декоратор для логирования вызовов функции в файл или консоль."""
+
     def decorator(func):
         logger = logging.getLogger(func.__module__ + "." + func.__name__)
         logger.setLevel(logging.INFO)
