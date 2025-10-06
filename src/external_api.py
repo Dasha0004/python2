@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()  # загружаем переменные окружения из .env
 
 API_KEY = os.getenv("EXCHANGE_API_KEY")
-BASE_URL = "https://api.apilayer.com/exchangerates_data/latest"
+BASE_URL = "https://api.apilayer.com/exchangerates_data/convert"
 
 
 def get_usd_to_rub_rate() -> float:
