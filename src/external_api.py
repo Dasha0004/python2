@@ -29,11 +29,11 @@ def get_eur_to_rub_rate() -> float:
 
 def get_transaction_amount_rub(transaction: dict) -> float:
     """
-    Принимает транзакцию с ключами 'amount' и 'currency'.
+    Принимает транзакцию с вложенной структурой
     Возвращает сумму транзакции в рублях.
     """
-    amount = float(transaction.get("amount", 0))
-    currency = transaction.get("currency", "RUB").upper()
+    amount = float(transaction.get("operationAmount", {}).get("amount", 0))
+    currency = transaction.get("operationAmount", {}).get("currency", {}).get("code", "RUB").upper()
 
     if currency == "RUB":
         return amount
